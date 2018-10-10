@@ -4,19 +4,25 @@ using System.Text;
 
 namespace SNMPManager.SNMPFrame
 {
-    public enum SequenceType { Structure = 0x30, PduGetRequest = 0xA0 }
-    class SNMPSequence
+    public enum SequenceType { Structure = 0x30, PduGetRequest = 0xA0, PduSetRequest = 0xA3 }
+
+    class SNMPSequence : ISnmpVar
     {
         private SequenceType type;
         private List<byte> result;
+        List<byte>[] bytes;
 
         public SNMPSequence(SequenceType type, params List<byte>[] bytes)
         {
             this.type = type;
-            MakeSequence(bytes);
+            this.bytes = bytes;
         }
 
-        public List<byte> GetSequence() => result;
+        public List<byte> Get()
+        {
+            MakeSequence(bytes);
+            return result;
+        }
 
         private void MakeSequence(List<byte>[] bytes)
         {

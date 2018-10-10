@@ -1,26 +1,29 @@
-﻿using System;
+﻿using SNMPManager.SNMPFrame;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SNMPManager
 {
-    public class SNMPInteger
+    public class SNMPInteger: ISnmpVar
     {
         private const byte integer = 0x02; //начало int
 
         private List<byte> result;
-
-        public int Length { get; }
-
-        public SNMPInteger(int number)
+        private int number;
+        
+        public SNMPInteger(int numb)
         {
-            MakeInt(number);
-            Length = result.Count;
+            number = numb;
         }
 
-        public List<byte> GetInt() => result;
+        public List<byte> Get()
+        {
+            MakeInt();
+            return result;
+        }
 
-        private void MakeInt(int number)
+        private void MakeInt()
         {
             List<byte> byteNumber = GetBytes(number);
             result = new List<byte>();

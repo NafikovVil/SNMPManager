@@ -4,21 +4,22 @@ using System.Text;
 
 namespace SNMPManager.SNMPFrame
 {
-    public class SNMPString
+    public class SNMPString: ISnmpVar
     {
         private const byte octetString = 0x04; //начало строки
 
         private List<byte> result;
-
-        public int Length { get; }
+        private string str;
 
         public SNMPString(string str)
         {
-            MakeString(str);
-            Length = result.Count;
+            this.str = str;
         }
 
-        public List<byte> GetString() => result;
+        public List<byte> Get() {
+            MakeString(str);
+            return result;
+        }
 
         private void MakeString(string str)
         {

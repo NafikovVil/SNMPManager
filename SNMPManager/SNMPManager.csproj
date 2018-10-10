@@ -3,6 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <StartupObject>SNMPManager.Program</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ConvertFromSNMP\" />
+  </ItemGroup>
 
 </Project>
