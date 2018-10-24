@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SNMPManager.SNMPFrame
 {
-    class SNMPObject: ISnmpVar
+    public class SNMPObject: ISnmpVar
     {
         private const byte obj = 0x06; //начало obj
 

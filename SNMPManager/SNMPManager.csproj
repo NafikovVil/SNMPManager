@@ -6,8 +6,4 @@
     <StartupObject>SNMPManager.Program</StartupObject>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="ConvertFromSNMP\" />
-  </ItemGroup>
-
 </Project>

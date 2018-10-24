@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SNMPManager.SNMPFrame
 {
-    public enum SequenceType { Structure = 0x30, PduGetRequest = 0xA0, PduSetRequest = 0xA3 }
+    public enum SequenceType { Structure = 0x30, PduGetRequest = 0xA0, PduSetRequest = 0xA3, PduGetNext = 0xA1 }
 
     class SNMPSequence : ISnmpVar
     {
